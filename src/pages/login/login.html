@@ -1,0 +1,24 @@
+<ion-content class ='bg'>
+  <div style ='margin:auto;margin:10%;'>
+    <h2 style ='color:white;text-align:center'>Bullying Awareness through Situational Scenario</h2>
+    <p style ='color:#FF3333' [innerHTML] = "this.error"></p>
+    <p style ='color:green' [innerHTML] = "this.success"></p>
+    <form  [formGroup] ="data" >
+      <ion-item>
+        <ion-input required type="text" placeholder="Name" formControlName = "username" style ='color:white'></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input required type="password" placeholder="Password" formControlName = "password" style ='color:white'></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <button ion-button color ="custom" type ='submit'  outline (click) ="onSubmit()" block>Login</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button color ="custom" expand = 'block'  outline block (click) = "gotoRegister()">Register</button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <p>List of users</p>
+  </div>
+</ion-content>

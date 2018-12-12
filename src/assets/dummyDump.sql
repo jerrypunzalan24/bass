@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS accounts( account_id INTEGER PRIMARY KEY, name TEXT NOT NULL, password TEXT NOT NULL, gender INTEGER, experienced integer, bullying_type TEXT);
+CREATE TABLE IF NOT EXISTS achievements(achivement_id integer primary key, account_id integer, type integer, quantity integer);

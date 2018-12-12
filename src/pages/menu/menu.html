@@ -1,0 +1,16 @@
+
+<ion-content class ='bg' fullscreen>
+  <div style ='margin:auto;margin:10%;'>
+    <p style ='text-align:center;color:green'>{{this.success}}</p>
+    <h1 style ='color:white;text-align:center'>Hello</h1>
+    <h3 style ='color:white;text-align:center;margin-top:5px'>{{this.name}}</h3>
+    <hr style ='background-color:white; height:1px;border:0'/>
+    <p style ='color:white;text-align:center'>What should we do today?</p>
+        <button ion-button block outline style ='margin-bottom:10px' color='custom'  (click) = "gotoBullying()">About Bullying</button>
+        <button ion-button block outline style ='margin-bottom:10px' color='custom' (click) = "gotoPhysicalBullying()">About Physical Bullying</button>
+        <button ion-button block outline style ='margin-bottom:10px' color='custom' (click) = "gotoVerbalBullying()">About Verbal Bullying</button>
+        <button ion-button block outline style ='margin-bottom:10px' color='custom' (click) = "gotoInteractives()">Interactives</button>
+        <button ion-button block outline style ='margin-bottom:10px' color='custom' (click) = "gotoAchievements()">Show Achievements</button>
+         <button ion-button block outline style ='margin-bottom:10px' color='custom' (click) = "logout()">Logout of this device</button>
+  </div>
+</ion-content>

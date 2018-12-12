@@ -10,7 +10,8 @@ $font-path: "../assets/fonts";
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
+$background-color: transparent;
+$app-background: linear-gradient(#212121, #25124F);
 
 @import "ionic.globals";
 
@@ -38,7 +39,9 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  custom:  #4800FF,
+  white: #eeeeee
 );
 
 
