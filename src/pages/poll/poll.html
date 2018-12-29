@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title></ion-title>
+    <ion-title>Poll</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,32 +15,33 @@
 
 <ion-content padding fullscreen class ='bg'>
   <div align ='center'>
-    <h3>Have you experienced bullying?</h3>
+    <h3 style ='color:black'>Have you experienced bullying?</h3>
     <ion-list radio-group [(ngModel)] = "experience">
       <ion-row>
         <ion-col>
           <ion-img src ='assets/imgs/sad.jpg' style ='width:75px;height:75px'></ion-img>
-          <ion-label style ='color:white;text-align:center'>Yes</ion-label>
+          <ion-label style =''>Yes</ion-label>
           <ion-radio value = '0'></ion-radio>
         </ion-col>
         <ion-col>
           <ion-img src ='assets/imgs/happy.jpg' style ='width:75px;height:75px'></ion-img>
-          <ion-label style ='color:white;text-align:center'>No</ion-label>
+          <ion-label style ='text-align:center'>No</ion-label>
           <ion-radio value = '1'></ion-radio>
         </ion-col>
       </ion-row>
     </ion-list>
-    <h3>If yes, what type of bullying did you experienced?(Skip if none)</h3>
+    <hr>
+    <h3 style ='color:black'>If yes, what type of bullying did you experienced?(Skip if none)</h3>
     <ion-list radio-group [(ngModel)] ="bullying_type">
       <ion-row>
         <ion-col>
           <ion-img src ='assets/imgs/physical-bullying/pb1.jpg' style ='width:75px;height:75px'></ion-img>
-          <ion-label style ='color:white;text-align:center'>Physical Bullying</ion-label>
+          <ion-label style ='text-align:center'>Physical Bullying</ion-label>
           <ion-radio value = 'Physical'></ion-radio>
         </ion-col>
         <ion-col>
           <ion-img src ='assets/imgs/verbal-bullying/vb1.jpg' style ='width:75px;height:75px'></ion-img>
-          <ion-label style ='color:white;text-align:center'>Verbal Bullying</ion-label>
+          <ion-label style ='text-align:center'>Verbal Bullying</ion-label>
           <ion-radio value = 'Verbal'></ion-radio>
         </ion-col>
       </ion-row>

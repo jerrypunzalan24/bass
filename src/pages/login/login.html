@@ -1,24 +1,26 @@
-<ion-content class ='bg'>
-  <div style ='margin:auto;margin:10%;'>
-    <h2 style ='color:white;text-align:center'>Bullying Awareness through Situational Scenario</h2>
-    <p style ='color:#FF3333' [innerHTML] = "this.error"></p>
-    <p style ='color:green' [innerHTML] = "this.success"></p>
-    <form  [formGroup] ="data" >
-      <ion-item>
-        <ion-input required type="text" placeholder="Name" formControlName = "username" style ='color:white'></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input required type="password" placeholder="Password" formControlName = "password" style ='color:white'></ion-input>
-      </ion-item>
-      <ion-row>
-        <ion-col>
-          <button ion-button color ="custom" type ='submit'  outline (click) ="onSubmit()" block>Login</button>
-        </ion-col>
-        <ion-col>
-          <button ion-button color ="custom" expand = 'block'  outline block (click) = "gotoRegister()">Register</button>
-        </ion-col>
-      </ion-row>
-    </form>
-    <p>List of users</p>
-  </div>
+<ion-content style ='background:     linear-gradient(
+      rgba(65, 65, 255, 0.65), 
+      rgba(65, 65, 255, 0.65)
+    ), url(./assets/imgs/bg.jpg); background-size:cover'>
+    <div style ='margin:auto;margin:10%;'>
+      <div style ='padding-bottom:20%'>
+        <h2 style ='color:white;text-align:center;font-size:2.2em; text-shadow: 0 0 5px #000000'>Bullying Awareness through Situational Scenario</h2>
+      </div>
+      <form  [formGroup] ="data" >
+        <div style ='background:white;padding:15px;border-radius: 3px; box-shadow: 0 0 10px #000000'>
+          <p style ='color:#FF3333' [innerHTML] = "this.error"></p>
+          <p style ='color:green' [innerHTML] = "this.success"></p>
+          <div class ='input-style' style ='margin-bottom: 5px' >
+            <ion-input required type="text" placeholder="Name" formControlName = "username" ></ion-input>
+          </div>
+          <div class ='input-style'  style ='margin-bottom:30px'>
+            <ion-input required type="password" placeholder="Password" formControlName = "password" ></ion-input>
+          </div>
+          <ion-row >
+            <button ion-button color ="blue" type ='submit' block (click) ="onSubmit()" block>Login</button>
+            <button ion-button color ="green"  block (click) = "gotoRegister()">Register</button>
+          </ion-row>
+        </div>
+      </form>
+    </div>
 </ion-content>

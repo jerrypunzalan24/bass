@@ -22,12 +22,14 @@ import {LoginPage} from '../login/login';
 export class MenuPage {
   name = ''
   success =''
+  imageId = 0
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log(this.navParams.data)
     this.name = this.navParams.get("name")
     if(this.navParams.get("success") !== undefined){
       this.name = this.navParams.get("username")
       this.success = this.navParams.get("success")
+      this.imageId = this.navParams.get("imageId")
       setTimeout(() => {
         this.success = ''
       },5000)

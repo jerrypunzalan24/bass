@@ -38,6 +38,7 @@ import {DatabaseProvider} from '../../providers/database/database';
          username: this.username,
          success: "Registered Success",
          experience: this.experience,
+         imageId : this.gender,
          bullying_type: this.bullying_type
        })
      }, err =>{

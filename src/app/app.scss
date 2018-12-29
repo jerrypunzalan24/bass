@@ -16,5 +16,10 @@
 // automatically applied to the <body> element in the app.
 
 .bg{
- background: linear-gradient(#212121, #25124F);
+ background: white;
+}
+.input-style{
+  border: solid 1px #5A5A5A;
+  border-radius: 5px;
+  border-width: thin
 }
