@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PollPage} from '../poll/poll'
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import {DatabaseProvider} from '../../providers/database/database';
 import{LoginPage} from '../login/login';
 /**

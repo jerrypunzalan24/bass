@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {CyberBullyingScenarioPage} from '../cyber-bullying-scenario/cyber-bullying-scenario'
 /**
  * Generated class for the MenuBullyingPage page.
  *
@@ -24,5 +24,7 @@ export class MenuBullyingPage {
   goback(){
     this.navCtrl.pop();
   }
-
+  gotoScenario(){
+    this.navCtrl.setRoot(CyberBullyingScenarioPage)
+  }
 }

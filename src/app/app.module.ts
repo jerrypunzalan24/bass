@@ -13,6 +13,11 @@ import {MenuBullyingPage} from '../pages/menu-bullying/menu-bullying';
 import {MenuPhysicalBullyingPage} from '../pages/menu-physical-bullying/menu-physical-bullying';
 import {MenuVerbalBullyingPage} from '../pages/menu-verbal-bullying/menu-verbal-bullying';
 import {MenuInteractivesPage} from '../pages/menu-interactives/menu-interactives';
+import {CyberBullyingScenarioPage} from '../pages/cyber-bullying-scenario/cyber-bullying-scenario';
+import {PhysicalBullyingScenarioPage} from '../pages/physical-bullying-scenario/physical-bullying-scenario';
+import {VerbalBullyingScenarioPage} from '../pages/verbal-bullying-scenario/verbal-bullying-scenario';
+import {SocialBullyingScenarioPage} from '../pages/social-bullying-scenario/social-bullying-scenario';
+import {SocialBullyingPage} from '../pages/social-bullying/social-bullying';
 import {PollPage} from '../pages/poll/poll';
 
 import { DatabaseProvider } from '../providers/database/database';
@@ -34,7 +39,12 @@ import { SQLite } from '@ionic-native/sqlite'
     MenuPhysicalBullyingPage,
     MenuVerbalBullyingPage,
     MenuInteractivesPage,
-    PollPage
+    PollPage,
+    SocialBullyingPage,
+    SocialBullyingScenarioPage,
+    VerbalBullyingScenarioPage,
+    CyberBullyingScenarioPage,
+    PhysicalBullyingScenarioPage,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +63,12 @@ import { SQLite } from '@ionic-native/sqlite'
     MenuPhysicalBullyingPage,
     MenuVerbalBullyingPage,
     MenuInteractivesPage,
-    PollPage
+    PollPage,
+    SocialBullyingPage,
+    SocialBullyingScenarioPage,
+    VerbalBullyingScenarioPage,
+    CyberBullyingScenarioPage,
+    PhysicalBullyingScenarioPage
   ],
   providers: [
     StatusBar,

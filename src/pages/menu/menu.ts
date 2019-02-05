@@ -6,6 +6,7 @@ import {MenuPhysicalBullyingPage} from '../menu-physical-bullying/menu-physical-
 import {MenuVerbalBullyingPage} from '../menu-verbal-bullying/menu-verbal-bullying';
 import {MenuInteractivesPage} from '../menu-interactives/menu-interactives';
 import {MenuAchievementsPage} from '../menu-achievements/menu-achievements';
+import {SocialBullyingPage} from '../social-bullying/social-bullying';
 import {LoginPage} from '../login/login';
 /**
  * Generated class for the MenuPage page.
@@ -20,12 +21,12 @@ import {LoginPage} from '../login/login';
   templateUrl: 'menu.html',
 })
 export class MenuPage {
-  name = ''
+  name = "Anon"
   success =''
   imageId = 0
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log(this.navParams.data)
-    this.name = this.navParams.get("name")
+    this.name = this.navParams.get("name") || "Anon"
     if(this.navParams.get("success") !== undefined){
       this.name = this.navParams.get("username")
       this.success = this.navParams.get("success")
@@ -53,6 +54,9 @@ export class MenuPage {
   }
   gotoAchievements(){
     this.navCtrl.push(MenuAchievementsPage)
+  }
+  gotoSocialBullying(){
+    this.navCtrl.push(SocialBullyingPage)
   }
   logout(){
     this.navCtrl.setRoot(LoginPage, {success: "Logout success"})

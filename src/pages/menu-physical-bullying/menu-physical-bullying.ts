@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {PhysicalBullyingScenarioPage} from '../physical-bullying-scenario/physical-bullying-scenario';
 /**
  * Generated class for the MenuPhysicalBullyingPage page.
  *
@@ -20,6 +20,9 @@ export class MenuPhysicalBullyingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPhysicalBullyingPage');
+  }
+  gotoScenario(){
+    this.navCtrl.setRoot(PhysicalBullyingScenarioPage)
   }
 
 }

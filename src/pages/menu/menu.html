@@ -12,32 +12,45 @@
         <img src ='./assets/imgs/gender/{{this.imageId}}.png' > 
       </ion-col>
       <ion-col>
-        <h2 style ='color:black'>{{this.username}}</h2>
+        <h2 style ='color:black'>{{this.name}}</h2>
       </ion-col>
     </ion-row>
-
-    <hr/>
+   <div style="width: 100%; height: 10px; border-bottom: 1px solid black; text-align: center">
+  <span style="font-size: 12px; background-color: #FFFFFF; padding: 0 10px;">
+    Bullying Types <!--Padding is optional-->
+  </span>
+</div>
     <ion-row>
       <ion-col>
-        <button ion-button block style ='margin-bottom:10px;height:100px' color='primary'  (click) = "gotoBullying()">Bullying</button>
+        <button ion-button block style ='margin-bottom:10px;height:100px' color='primary'  (click) = "gotoBullying()">Cyber</button>
       </ion-col>
       <ion-col>        
-        <button ion-button block style ='margin-bottom:10px;height:100px' color='secondary' (click) = "gotoPhysicalBullying()">Physical Bullying</button>    
+        <button ion-button block style ='margin-bottom:10px;height:100px' color='secondary' (click) = "gotoPhysicalBullying()">Physical</button>    
       </ion-col>
     </ion-row>
     <ion-row>
+    <ion-col>
+    <button ion-button block style ='margin-bottom:10px;height:100px' color ='brown' (click) = "gotoSocialBullying()">Social</button>
+    </ion-col>
       <ion-col>
-        <button ion-button block style ='margin-bottom:10px;height:100px' color='custom' (click) = "gotoVerbalBullying()">Verbal Bullying</button>    
+        <button ion-button block style ='margin-bottom:10px;height:100px' color='custom' (click) = "gotoVerbalBullying()">Verbal</button>    
+      </ion-col>
+    </ion-row>
+   <div style="width: 100%; height: 10px; border-bottom: 1px solid black; text-align: center">
+  <span style="font-size: 12px; background-color: #FFFFFF; padding: 0 10px;">
+    Options <!--Padding is optional-->
+  </span>
+</div>
+    <ion-row>
+      <ion-col>
+        <button ion-button block style ='margin-bottom:10px;height:100px' color='orange' (click) = "gotoAchievements()">Achievements</button>  
       </ion-col>
       <ion-col>        
         <button ion-button block style ='margin-bottom:10px;height:100px' color='success' (click) = "gotoInteractives()">Interactives</button>    
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <button ion-button block style ='margin-bottom:10px;height:100px' color='orange' (click) = "gotoAchievements()">Achievements</button>  
-      </ion-col>
-      <ion-col>
+          <ion-col>
         <button ion-button block style ='margin-bottom:10px;height:100px' color='danger' (click) = "logout()">Logout</button>  
       </ion-col>
     </ion-row>

@@ -1,0 +1,74 @@
+<!--
+  Generated template for the PhysicalBullyingScenarioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<div>
+<video controls width ="100%" [src] = "videoSrc" (ended) = "vidEnded()" controls autoplay>
+</video>
+<!-- scenario 1 -->
+<div *ngIf = "ended">
+<p>If you were on this situation what will you do?</p>
+<button ion-button block (click) ="SceneOneWrong()">Give him your money, then run away</button>
+<button ion-button block (click) = "SceneOneCorrect()">Give him your money, then ask the teacher</button>
+</div>
+<div *ngIf = "correct" style ='margin-top:10px'>
+<h5 style ='color:green'>Correct!</h5>
+<p>Ask the teacher what happened, and surely your teacher will teach that bully a lesson.</p>
+<button ion-button block (click) ="scenarioTwoStart()">Go to next scenario</button>
+</div>
+<div *ngIf = "wrong" style ='margin-top:10px'>
+<h5 style ='color:red'>Wrong!</h5>
+<p>Just because they threatened you, doesn't mean you'll stop asking for help. Remember it's only a threat</p>
+<button ion-button block (click) = "goback()">Go back</button>
+</div>
+<!-- end scenario -->
+<!-- Scenario 2 -->
+<div *ngIf ="ended1">
+ <p>If you were on this situation what will you do?</p>
+ <button ion-button block (click) = "SceneTwoWrong()">Walk and pretend you didn't see them</button>
+ <button ion-button block (click) = "SceneTwoCorrect()">Hide</button>
+</div>
+<div *ngIf = "correct1" style ='margin-top:10px'>
+<h5 style ='color:green'>Correct!</h5>
+<p>Remember, confidence is not always an option. We suggest you to have a friend/teacher to walk with you if you come across these bullies</p>
+<button ion-button block (click) ="scenarioThreeStart()">Go to next scenario</button>
+</div>
+<div *ngIf ="wrong1" style ='margin-top:10px'>
+  <h5 style ='color:red'>Wrong!</h5>
+  <p>If you encountered these bullies in the hallway, you can stay in the rooms to hide, or go to the other side.</p>
+  <button ion-button block (click) = "goback()">Go back</button>
+</div>
+<!-- End scenario 2-->
+
+<!--Scenario 3 -->
+<div *ngIf ="ended2">
+<p>If you were on this situation what will you do?</p>
+ <button ion-button block (click) = "SceneThreeCorrect()">Tell the teacher</button>
+ <button ion-button block (click) = "SceneThreeWrong()">Ignore and let them hurt/insult you</button>
+</div>
+<div *ngIf = "correct2" style ='margin-top:10px'>
+<h5 style ='color:green'>Congratulations</h5>
+<p>You know what they say: "Teacher knows best"</p>
+<p>Congratulations for finishing all the scenario in this topic. We hope you learn more on how to avoid this in real life cases.</p>
+<button ion-button (click) = "gohome()">Go to main menu</button>
+</div>
+<div *ngIf ="wrong2" style ='margin-top:10px'>
+  <h5 style ='color:red'>Wrong!</h5>
+  <p>Your emotional capacity won't be able to endure this. And this will leave you an anxiety and trauma eventually.</p>
+  <button ion-button block (click) = "goback()">Go back</button>
+</div>
+<!-- End scenario -->
+</div>
+</ion-content>
