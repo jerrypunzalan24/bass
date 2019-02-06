@@ -7,12 +7,80 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>verbal-bullying-scenario</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div>
+    <video controls width ="100%" [src] = "videoSrc" (ended) = "vidEnded()" controls autoplay>
+    </video>
+    <!-- scenario 1 -->
+    <div *ngIf = "ended">
+    <p>If you were on this situation what will you do?</p>
+    <button ion-button block (click) ="SceneOneCorrect()">Accept what he said</button>
+    <button ion-button block (click) = "SceneOneWrong()">Retaliate</button>
+    <button ion-button block (click) = "SceneOneWrong1()">Ask</button>
+    </div>
+    <div *ngIf = "correct" style ='margin-top:10px'>
+    <h5 style ='color:green'>Correct!</h5>
+    <p>Being a nerd is a smart person, it is not supposed be an insult. When someone calls you that take it as a compliment</p>
+    <button ion-button block (click) ="scenarioTwoStart()">Go to next scenario</button>
+    </div>
+    <div *ngIf = "wrong" style ='margin-top:10px'>
+    <h5 style ='color:red'>Wrong!</h5>
+    <p>This is obviously wrong unless you are physically prepared to fight back</p>
+    <button ion-button block (click) = "goback()">Go back</button>
+    </div>
+    <div *ngIf = "wrongg" style ='margin-top:10px'>
+      <h5 style ='color:red'>Wrong!</h5>
+      <p>This is not the right time to ask question especially for a bully because he/she will make fun of you.</p>
+      <button ion-button block (click) = "goback()">Go back</button>
+      </div>
+    <!-- end scenario -->
+    <!-- Scenario 2 -->
+    <div *ngIf ="ended1">
+     <p>If you were on this situation what will you do?</p>
+     <button ion-button block (click) = "SceneTwoWrong()">Talk back</button>
+     <button ion-button block (click) = "SceneTwoWrong1()">Ask what you did wrong</button>
+     <button ion-button block (click) = "SceneTwoCorrect()">Pretend you didn't hear</button>
+    </div>
+    <div *ngIf = "correct1" style ='margin-top:10px'>
+    <h5 style ='color:green'>Correct!</h5>
+    <p>Ignore them. Your teachers only have the right to criticize your presentation, not those bullies</p>
+    <button ion-button block (click) ="scenarioThreeStart()">Go to next scenario</button>
+    </div>
+    <div *ngIf ="wrong1" style ='margin-top:10px'>
+      <h5 style ='color:red'>Wrong!</h5>
+      <p>Don't let your emotions win when you present. Your teachers got your back to support you.</p>
+      <button ion-button block (click) = "goback()">Go back</button>
+    </div>
+    <div *ngIf ="wrong11" style ='margin-top:10px'>
+      <h5 style ='color:red'>Wrong!</h5>
+      <p>If you make mistakes in a presentation just focus and let the teacher start to say the whole class to keep quiet</p>
+      <button ion-button block (click) = "goback()">Go back</button>
+    </div>
+    <!-- End scenario 2-->
+    
+    <!--Scenario 3 -->
+    <div *ngIf ="ended2">
+        <p>If you were on this situation what will you do?</p>
+        <button ion-button block (click) = "ScenarioThreeCorrect()">Stand for yourself</button>
+        <button ion-button block (click) = "ScenarioThreeWrong()">Run from embarrassment</button>
+    </div>
+    <div *ngIf = "wrong2">
+      <h5 style ='color:red'></h5>
+      <p>Show yourself that you are not weak. Be confident!</p>
+      <button ion-button block (click)="goback()">Go back</button>
+    </div>
+    <div *ngIf = "correct2">
+      <h5 style ='color:green'>Congratulations</h5>
+      <p>Fight back! Because it is just an accident and every people encounter it. People will see you as a brave and strong person</p>
+      <p>Congratulations for finishing all the scenario in this topic. We hope you learn more on how to avoid this in real life cases.</p>
+      <button ion-button block (click)= "gohome()">Go to main menu</button>
+    </div>
+    <!-- End scenario -->
+    </div>
 </ion-content>

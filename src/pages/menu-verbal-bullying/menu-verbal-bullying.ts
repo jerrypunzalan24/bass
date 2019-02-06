@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {VerbalBullyingScenarioPage} from '../verbal-bullying-scenario/verbal-bullying-scenario'
 /**
  * Generated class for the MenuVerbalBullyingPage page.
  *
@@ -20,6 +20,9 @@ export class MenuVerbalBullyingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuVerbalBullyingPage');
+  }
+  gotoScenario(){
+    this.navCtrl.setRoot(VerbalBullyingScenarioPage)
   }
 
 }

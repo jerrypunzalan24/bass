@@ -7,12 +7,50 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>social-bullying-scenario</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div>
+    <video controls width ="100%" [src] = "videoSrc" (ended) = "vidEnded()" controls autoplay>
+      </video>
+<!-- scenario 1 -->
+<div *ngIf = "ended1">
+    <p>If you were on this situation what will you do?</p>
+    <button ion-button block (click) ="SceneOneWrong()">Ask yourself that is not true</button>
+    <button ion-button block (click) = "SceneOneCorrect()">Tell a friend that is not true</button>
+    </div>
+    <div *ngIf = "correct1" style ='margin-top:10px'>
+    <h5 style ='color:green'>Correct!</h5>
+    <p>Tell your closest friend that the rumors are spreading about you is not true. Because your friends will help you spread the truth.</p>
+    <p>Congratulations for finishing all the scenario in this topic. We hope you learn more on how to avoid this in real life cases.</p>
+        <button ion-button (click) = "gohome()">Go to main menu</button>
+      </div>
+    <div *ngIf = "wrong1" style ='margin-top:10px'>
+    <h5 style ='color:red'>Wrong!</h5>
+    <p>You need someone who will know that you are not that person based on their rumors</p>
+    <button ion-button block (click) = "goback()">Go back</button>
+    </div>
+    <!-- end scenario -->
+    <!-- Scenario 2 -->
+    <div *ngIf ="ended">
+     <p>If you were on this situation what will you do?</p>
+     <button ion-button block (click) = "SceneTwoCorrect()">Trust your friend</button>
+     <button ion-button block (click) = "SceneTwoWrong()">Doubt your friend</button>
+    </div>
+    <div *ngIf = "correct" style ='margin-top:10px'>
+        <h5 style ='color:green'>Correct</h5>
+        <p>True friends <b>stay true</b>!</p>
+        <button ion-button block (click) = "scenarioTwoStart()">Go to next Scenario</button>
+    </div>
+    <div *ngIf ="wrong" style ='margin-top:10px'>
+      <h5 style ='color:red'>Wrong!</h5>
+      <p>Doubting someone you truly care about only makes things worse. Because you don't trust her</p>
+      <button ion-button block (click) = "goback()">Go back</button>
+    </div>
+    <!-- End scenario 2-->
+  </div>
 </ion-content>

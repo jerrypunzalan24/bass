@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {SocialBullyingScenarioPage} from '../social-bullying-scenario/social-bullying-scenario';
 /**
  * Generated class for the SocialBullyingPage page.
  *
@@ -20,6 +20,9 @@ export class SocialBullyingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SocialBullyingPage');
+  }
+  gotoScenario(){
+    this.navCtrl.setRoot(SocialBullyingScenarioPage)
   }
 
 }
