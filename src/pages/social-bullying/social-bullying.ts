@@ -22,7 +22,7 @@ export class SocialBullyingPage {
     console.log('ionViewDidLoad SocialBullyingPage');
   }
   gotoScenario(){
-    this.navCtrl.setRoot(SocialBullyingScenarioPage)
+    this.navCtrl.push(SocialBullyingScenarioPage)
   }
 
 }

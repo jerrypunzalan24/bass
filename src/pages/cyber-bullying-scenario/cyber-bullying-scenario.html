@@ -10,51 +10,106 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding fullscreen class ='bg'>
-<div>
-<video controls width ="100%" [src] = "videoSrc" (ended) = "vidEnded()" controls autoplay>
-</video>
-<!-- scenario 1 -->
-<div *ngIf = "ended">
-<p>If you were on this situation what will you do?</p>
-<button ion-button block (click) ="SceneOneCorrect()">Screenshot, and tell your parents</button>
-<button ion-button block (click) = "SceneOneWrong()">Tell her that her Mom is fat</button>
-</div>
-<div *ngIf = "correct" style ='margin-top:10px'>
-<h5 style ='color:green'>Correct!</h5>
-<p>Correct! Anger is not always the solution, always remember that your parents knows best.</p>
-<button ion-button block (click) ="scenarioTwoStart()">Go to next scenario</button>
-</div>
-<div *ngIf = "wrong" style ='margin-top:10px'>
-<h5 style ='color:red'>Wrong!</h5>
-<p>Don't let your emotions win in this scenario, let your parents or someone better know how to handle this</p>
-<button ion-button block (click) = "goback()">Go back</button>
-</div>
-<!-- end scenario -->
-<!-- Scenario 2 -->
-<div *ngIf ="ended1">
- <p>If you were on this situation what will you do?</p>
- <button ion-button block (click) = "SceneTwoWrong()">Reply on the post</button>
- <button ion-button block (click) = "SceneTwoCorrect()">Screenshot then tell your teacher</button>
-</div>
-<div *ngIf = "correct1" style ='margin-top:10px'>
-<h5 style ='color:green'>Correct!</h5>
-<p>You can't handle this situation alone. Let your teacher know so that bully can teach him/her a lesson</p>
-<button ion-button block (click) ="scenarioThreeStart()">Go to next scenario</button>
-</div>
-<div *ngIf ="wrong1" style ='margin-top:10px'>
-  <h5 style ='color:red'>Wrong!</h5>
-  <p>Maybe try asking someone who might teach him/her a lesson</p>
-  <button ion-button block (click) = "goback()">Go back</button>
-</div>
-<!-- End scenario 2-->
+<ion-content padding fullscreen class='bg'>
+  <div>
+    <video controls width="100%" [src]="videoSrc" (ended)="vidEnded()" controls autoplay>
+    </video>
+    <!-- scenario 1 -->
+    <div *ngIf="ended">
+      <button ion-button block (click)="SceneOneCorrect()">Screenshot, and tell your parents</button>
+      <button ion-button block (click)="SceneOneWrong()">Tell her that her Mom is fat</button>
+      <div style='margin-top:50px'>
+        <div class='speech-bubble-right'>
+          <p>If you were on this situation what will you do?</p>
+        </div>
+        <img src='assets/imgs/avatar/1.png' width='150' height='150' align='right'>
+      </div>
+    </div>
+    <div *ngIf="correct" style='margin-top:10px'>
+      <button ion-button block (click)="scenarioTwoStart()">Go to next scenario</button>
+      <style>
+        .green:after {
+          border-top-color: green
+        }
 
-<!--Scenario 3 -->
-<div *ngIf ="ended2">
-<h5 style ='color:green'>Congratulations</h5>
-<p>Congratulations for finishing all the scenario in this topic. We hope you learn more on how to avoid this in real life cases.</p>
-<button ion-button (click) = "gohome()">Go to main menu</button>
-</div>
-<!-- End scenario -->
-</div>
+      </style>
+      <div class='speech-bubble-right green' style='background:green;margin-top:15px'>
+        <h5>Correct!</h5>
+        <p>Correct! Anger is not always the solution, always remember that your parents knows best.</p>
+      </div>
+      <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
+    </div>
+    <div *ngIf="wrong" style='margin-top:10px'>
+      <button ion-button block (click)="scenarioTwoStart()">Go to next scenario</button>
+      <style>.red:after {
+        border-top-color: red;
+      }
+    </style>
+      <div class='speech-bubble-right red' style='background:red;margin-top:15px'>
+        <h5>Wrong!</h5>
+        <p>Don't let your emotions win in this scenario, let your parents or someone better know how to handle this</p>
+      </div>
+      <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
+    </div>
+    <!-- end scenario -->
+    <!-- Scenario 2 -->
+    <div *ngIf="ended1">
+      <button ion-button block (click)="SceneTwoWrong()">Reply on the post</button>
+      <button ion-button block (click)="SceneTwoCorrect()">Screenshot then tell your teacher</button>
+      <div style='margin-top:50px'>
+        <div class='speech-bubble-right'>
+          <p>If you were on this situation what will you do?</p>
+        </div>
+        <img src='assets/imgs/avatar/1.png' width='150' height='150' align='right'>
+      </div>
+    </div>
+    <div *ngIf="correct1" style='margin-top:10px'>
+      <button ion-button block (click)="scenarioThreeStart()">Go to next scenario</button>
+      <style>
+        .green:after {
+          border-top-color: green
+        }
+
+      </style>
+      <div class='speech-bubble-right green' style='background:green;margin-top:15px'>
+        <h5>Correct!</h5>
+        <p>You can't handle this situation alone. Let your teacher know so that bully can teach him/her a lesson</p>
+      </div>
+      <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
+    </div>
+    <div *ngIf="wrong1" style='margin-top:10px'>
+      <button ion-button block (click)="scenarioThreeStart()">Go to next scenario</button>
+      <style>
+        .red:after {
+          border-top-color: red
+        }
+
+      </style>
+      <div class='speech-bubble-right red' style='background:red;margin-top:15px'>
+        <h5>Wrong!</h5>
+        <p>Maybe try asking someone who might teach him/her a lesson</p>
+      </div>
+      <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
+    </div>
+  </div>
+  <!-- End scenario 2-->
+
+  <!--Scenario 3 -->
+  <div *ngIf="ended2">
+    <button ion-button block (click)="gohome()">Go to main menu</button>
+    <style>
+      .green:after {
+        border-top-color: green
+      }
+
+    </style>
+    <div class='speech-bubble-right green' style='background:green;margin-top:15px'>
+      <h5>Congratulations</h5>
+      <p>Congratulations for finishing all the scenario in this topic. We hope you learn more on how to avoid this in
+        real life cases.</p>
+    </div>
+    <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
+  </div>
+  <!-- End scenario -->
+
 </ion-content>

@@ -22,7 +22,7 @@ export class MenuPhysicalBullyingPage {
     console.log('ionViewDidLoad MenuPhysicalBullyingPage');
   }
   gotoScenario(){
-    this.navCtrl.setRoot(PhysicalBullyingScenarioPage)
+    this.navCtrl.push(PhysicalBullyingScenarioPage)
   }
 
 }

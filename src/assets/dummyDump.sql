@@ -1,2 +1,3 @@
 CREATE TABLE IF NOT EXISTS accounts( account_id INTEGER PRIMARY KEY, name TEXT NOT NULL, password TEXT NOT NULL, gender INTEGER, experienced integer, bullying_type TEXT);
-CREATE TABLE IF NOT EXISTS achievements(achivement_id integer primary key, account_id integer, type integer, quantity integer);
+CREATE TABLE IF NOT EXISTS achievements(achivement_id integer primary key, account_id integer, achievement_name VARCHAR(50), achievement_complete integer);
+CREATE TABLE IF NOT EXISTS progress(progress_id integer primary key, account_id integer, scenario VARCHAR(15), score integer, temp_score integer, level integer);

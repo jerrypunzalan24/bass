@@ -25,6 +25,6 @@ export class MenuBullyingPage {
     this.navCtrl.pop();
   }
   gotoScenario(){
-    this.navCtrl.setRoot(CyberBullyingScenarioPage)
+    this.navCtrl.push(CyberBullyingScenarioPage)
   }
 }

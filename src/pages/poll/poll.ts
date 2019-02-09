@@ -33,7 +33,6 @@ import {DatabaseProvider} from '../../providers/database/database';
    onSubmit(){
      this.database.addAccount(this.username, this.password, this.gender, this.experience, this.bullying_type)
      .then(()=>{
-       console.log("Added")
        this.navCtrl.setRoot(MenuPage, {
          username: this.username,
          success: "Registered Success",

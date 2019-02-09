@@ -40,16 +40,6 @@ export class CyberBullyingScenarioPage {
       this.ended2 = true
     }
   }
-  goback(){
-    if(this.videoSrc == "assets/videos/Cyber/Cyber 1/Option_C1_2.mp4"){
-      this.videoSrc = "assets/videos/Cyber/Cyber 1/Intro_C1.mp4"
-      this.wrong = false
-    }
-    if(this.videoSrc == "assets/videos/Cyber/Cyber 2/Option_C2_1.mp4"){
-      this.videoSrc = "assets/videos/Cyber/Cyber 2/Intro_C2.mp4"
-      this.wrong1 = false
-    }
-  }
   SceneOneCorrect(){
     this.videoSrc = "assets/videos/Cyber/Cyber 1/Option_C1_1.mp4"
     this.ended = false
@@ -62,6 +52,7 @@ export class CyberBullyingScenarioPage {
   }
   scenarioTwoStart(){
     this.correct = false
+    this.wrong = false
     this.videoSrc = "assets/videos/Cyber/Cyber 2/Intro_C2.mp4"
   }
   SceneTwoCorrect(){
@@ -76,6 +67,7 @@ export class CyberBullyingScenarioPage {
   }
   scenarioThreeStart(){
     this.correct1 = false
+    this.wrong1 = false
     this.videoSrc = "assets/videos/Cyber/Cyber 3/Intro_C3.mp4"
   }
   gohome(){

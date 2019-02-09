@@ -22,7 +22,7 @@ export class MenuVerbalBullyingPage {
     console.log('ionViewDidLoad MenuVerbalBullyingPage');
   }
   gotoScenario(){
-    this.navCtrl.setRoot(VerbalBullyingScenarioPage)
+    this.navCtrl.push(VerbalBullyingScenarioPage)
   }
 
 }

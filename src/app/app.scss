@@ -23,3 +23,57 @@
   border-radius: 5px;
   border-width: thin
 }
+
+
+.speech-bubble{
+position: relative;
+	background: #00aabb;
+	border-radius: .4em;
+  padding:10px
+}
+.speech-bubble p, .speech-bubble h1, .speech-bubble h4, .speech-bubble h5, .speech-bubble h2{
+  color:white;
+}
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #00aabb;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -100px;
+	margin-bottom: -10px;
+}
+p{
+  text-align:justify;
+  font-size:16px
+}
+.speech-bubble-right p, .speech-bubble-right h1, .speech-bubble-right h4, .speech-bubble-right h5, .speech-bubble-right h2{
+  color:white;
+}
+
+.speech-bubble-right {
+	position: relative;
+	background: #ff0080;
+	border-radius: .4em;
+  padding:10px;
+}
+
+.speech-bubble-right:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #ff0080;
+	border-bottom: 0;
+	border-right: 0;
+	margin-left: 80px;
+	margin-bottom: -20px;
+}
