@@ -72,6 +72,8 @@ export class VerbalBullyingScenarioPage {
   }
   scenarioTwoStart(){
     this.correct = false
+    this.wrong = false
+    this.wrongg = false
     this.videoSrc = "assets/videos/Verbal/Verbal 2/Intro_V2.mp4"
   }
   SceneTwoCorrect(){
@@ -91,6 +93,8 @@ export class VerbalBullyingScenarioPage {
   }
   scenarioThreeStart(){
     this.correct1 = false
+    this.wrong1 = false
+    this.wrong11 = false
     this.videoSrc = "assets/videos/Verbal/Verbal 3/Intro_V3.mp4"
   }
   ScenarioThreeCorrect(){

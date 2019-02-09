@@ -7,13 +7,38 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title></ion-title>
+    <ion-title>Interactives</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<h5>Scenario 1</h5>
+  <div align ='center'>
+    <img src='assets/4pics/{{source1}}1.jpg' width='150' height='150' />
+    <img src='assets/4pics/{{source2}}2.jpg' width='150' height='150' /><br />
+    <img src='assets/4pics/{{source3}}3.jpg' width='150' height='150' />
+    <img src='assets/4pics/{{source4}}4.jpg' width='150' height='150' />
+    <div >
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[0]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[1]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[2]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[3]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[4]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[5]}}' maxlength='1' size='1'>
+    </div>
+    <div style ='margin-top:5px'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[6]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[7]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[8]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[9]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[10]}}' maxlength='1' size='1'>
+        <input class='characters' readonly type='text' value ='{{this.answerboxes[11]}}' maxlength='1' size='1'>
+    </div>
+    <hr/>
+    <input id ='userInput' style ='padding:10px;text-align:center;height:50px;font-size:18px' type ='text' (keyup) = "onKey($event)" value ='' placeholder ='Input your answer'/>
+    <button ion-button style ='margin-top:15px' block (click) ="submitAnswer()">Submit your answer</button>
+  </div>
+
 
 </ion-content>

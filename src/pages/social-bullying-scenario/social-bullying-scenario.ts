@@ -59,6 +59,7 @@ export class SocialBullyingScenarioPage {
   }
   scenarioTwoStart(){
     this.correct = false
+    this.wrong = false
     this.videoSrc = "assets/videos/Social/Social 1/Intro_S1.mp4"
   }
   SceneTwoCorrect(){
