@@ -71,7 +71,18 @@ export class DatabaseProvider {
       return err;
     });
   }
- 
+  getAccountId(name){
+    return this.database.executeSql(`SELECT * FROM accounts WHERE name = '${name}'`, []).then((data)=>{
+      let account_id = 0
+      if(data.rows.length > 0){
+        account_id = data.rows.item(0).account_id
+      }
+      return account_id
+    }, err => {
+      console.log("Error", err)
+      return [];
+    })
+  }
   getAllAccounts() {
     return this.database.executeSql("SELECT * FROM accounts", []).then((data) => {
       let developers = [];
@@ -86,7 +97,43 @@ export class DatabaseProvider {
       return [];
     });
   }
- 
+  // get achievements
+  addAchievement(id, name, complete){
+    let achievement = [id, name, complete]
+    return this.database.executeSql("INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(?,?,?)",achievement).then((data)=>{
+      return data;
+    },err =>{
+      console.log("ERROR",err)
+      return err;
+    })
+  }
+
+  checkAchievement(account_id, name){
+    return this.database.executeSql(`SELECT * FROM achievements WHERE account_id = ${account_id}, name = ${name}`,[]).then((data)=>{
+      return data.rows.length;
+    },err => {
+      console.log("ERROR ", err)
+      return err;
+    })
+  }
+
+  getCurrentAchievements(account_id){
+    return this.database.executeSql(`SELECT * FROM achievements WHERE account_id = ${account_id}`,[]).then((data)=>{
+      return data;
+    }, err =>{
+      console.log("ERROR", err)
+      return err;
+    })
+  }
+
+  executeQuery(str){
+    return this.database.executeSql(str,[]).then((data)=>{
+      return data;
+    },err =>{
+      console.log("ERROR ", err)
+      return err;
+    })
+  }
   getDatabaseState() {
     return this.databaseReady.asObservable();
   }

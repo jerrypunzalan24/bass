@@ -20,6 +20,7 @@ import{LoginPage} from '../login/login';
    password =''
    gender = 0
    error =''
+   id = 0
    constructor(public navCtrl: NavController, public navParams: NavParams, private database: DatabaseProvider) {
      this.database.getDatabaseState().subscribe(()=>console.log("I'm in"))
    }
@@ -50,7 +51,7 @@ import{LoginPage} from '../login/login';
            this.navCtrl.setRoot(PollPage, {
              username : this.username,
              password: this.password,
-             gender: this.gender
+             gender: this.gender,
            })  
          }
          else{
