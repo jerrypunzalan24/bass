@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
+import {DatabaseProvider} from '../../providers/database/database';
 /**
  * Generated class for the MenuAchievementsPage page.
  *
@@ -23,7 +24,61 @@ export class MenuAchievementsPage {
   scenario2Complete = 0
   scenario3Complete = 0
   scenario4Complete = 0
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController : AlertController) {
+
+  accountId = 0
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController : AlertController, private database : DatabaseProvider) {
+    this.accountId = this.navParams.get("accountId")
+    this.database.executeQuery(`SELECT * FROM progress WHERE scenario = 'scenario1' AND account_id = ${this.accountId}`).then((data)=>{
+      if(data.rows.length > 0){
+        if(data.rows.item(0).score > 0){
+          if(data.rows.item(0).score == 3){
+            this.scenario1Complete = 1
+          }
+          this.scenario1Score = data.rows.item(0).score
+        }
+        this.database.executeQuery(`SELECT * FROM progress WHERE scenario ='scenario2' AND account_id = ${this.accountId}`).then((data)=>{
+          if(data.rows.length > 0){
+            if(data.rows.item(0).score > 0){
+              if(data.rows.item(0).score == 3){
+                this.scenario2Complete = 1
+              }
+              this.scenario2Score = data.rows.item(0).score
+            }
+            this.database.executeQuery(`SELECT * FROM progress WHERE scenario = 'scenario3' AND account_id = ${this.accountId}`).then((data) =>{
+              if(data.rows.length > 0){
+                if(data.rows.item(0).score > 0){
+                  if(data.rows.item(0).score == 2){
+                    this.scenario3Complete = 1
+                  }
+                  this.scenario3Score = data.rows.item(0).score
+                }
+                this.database.executeQuery(`SELECT * FROM progress WHERE scenario ='scenario4' AND account_id = ${this.accountId}`).then((data)=>{
+                  if(data.rows.length > 0){
+                    if(data.rows.item(0).score > 0){
+                      if(data.rows.item(0).score == 3){
+                        this.scenario4Complete = 1
+                      }
+                      this.scenario3Score = data.rows.item(0).score
+                    }
+                  }
+                },err => {
+                  console.log("Error ",err)
+                  return err
+                })
+              }
+            }, err => {
+              console.log("Error ", err)
+              return err
+            })
+          }
+        }, err =>{
+          console.log("Error ", err)
+        })
+      }
+    },err =>{
+      console.log("Error ", err)
+      return err
+    })
   }
 
   ionViewDidLoad() {

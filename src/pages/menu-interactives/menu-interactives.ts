@@ -4,6 +4,7 @@ import {AlertController} from 'ionic-angular';
 import {Inject} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {MenuPage} from '../menu/menu';
+import {DatabaseProvider} from '../../providers/database/database';
 /**
  * Generated class for the MenuInteractivesPage page.
  *
@@ -17,29 +18,48 @@ import {MenuPage} from '../menu/menu';
   templateUrl: 'menu-interactives.html',
 })
 export class MenuInteractivesPage {
+accountId = 0
+source1 = 'bully'
+source2 = 'bully'
+source3 = 'bully'
+source4 = 'bully'
+level = 0
+score = 0
+alphabets ='abcdefghijklmnopqrstuvwxyz'
+answers = [
+  "bully",
+  "crying",
+  "friends",
+  "greedy",
+  "lonely",
+  "playing",
+  "shout",
+  "study",
+  "taunt",
+  "tease",
+]
+yourAnswer = ''
+answerboxes = []
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController : AlertController, @Inject(DOCUMENT) document, private database : DatabaseProvider) {
+    this.database.getDatabaseState().subscribe(()=>console.log("Success"))
+    this.accountId = this.navParams.get("accountId")
+    // retrieve score, level, and answerbanks to prevent from shuffling
+    this.database.executeQuery(`SELECT * FROM fourpics WHERE account_id = ${this.accountId}`).then((data)=>{
+      if(data.rows.length > 0){
+        this.level = data.rows.item(0).level
+        this.score = data.rows.item(0).score
+        if(data.rows.item(0).answerbank.length.trim() > 0){
+        this.answers = data.rows.item(0).answerbank.split(" ")
+        }
+        console.log("Level, score, and answerbank loaded successfully")
+        console.log(`Level : ${this.level} Score : ${this.score}\nAnswerbank : ${this.answers}`)
+      }
+    }, err =>{
+      console.log("Error ", err)
+      return err
+    })
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController : AlertController, @Inject(DOCUMENT) document) {
   }
-  source1 = 'bully'
-  source2 = 'bully'
-  source3 = 'bully'
-  source4 = 'bully'
-  level = 0
-  alphabets ='abcdefghijklmnopqrstuvwxyz'
-  answers = [
-    "bully",
-    "crying",
-    "friends",
-    "greedy",
-    "lonely",
-    "playing",
-    "shout",
-    "study",
-    "taunt",
-    "tease",
-  ]
-  yourAnswer = ''
-  answerboxes = []
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuInteractivesPage');
    this.startgame()
@@ -49,6 +69,13 @@ export class MenuInteractivesPage {
   startgame(){
     if(this.level == 0){
     this.randomizeAnswers()
+    let answerbankStr = this.answers.join(" ")
+    this.database.executeQuery(`INSERT INTO fourpics(account_id, level, score, answerbank) VALUES(${this.accountId}, ${this.level},${this.score}, '${answerbankStr}')`).then((data)=>{
+      console.log("Data saved")
+    }, err =>{
+      console.log("Error ", err )
+      return err
+    })
     }
     console.log(this.answers)
     this.source1 = this.answers[this.level]
@@ -86,27 +113,46 @@ export class MenuInteractivesPage {
   submitAnswer(){
     console.log(this.level)
     if(this.yourAnswer.toLowerCase() == this.answers[this.level]){
-      this.level++;
-      if(this.level == 10){
-        const alert = this.alertController.create({
-          title:"<b style ='color:green'>Congratulations</b>",
-          message: "Congratulations for finishing this game!",
-          buttons : ['OK']
+      this.database.executeQuery(`UPDATE fourpics SET level = level + 1, score = score + 1 WHERE account_id = ${this.accountId}`).then((data)=>{
+        console.log("Progress saved!")
+        this.database.executeQuery(`SELECT * FROM fourpics WHERE account_id = ${this.accountId}`).then((data)=>{
+          if(data.rows.length > 0){
+            if(data.rows.items(0).level == 10){
+              this.database.executeQuery(`UPDATE fourpics SET level = 0, answerbank = '' WHERE account_id = ${this.accountId}`).then((data)=>{
+                const alert = this.alertController.create({
+                  title:"<b style ='color:green'>Congratulations</b>",
+                  message: "Congratulations for finishing this game!",
+                  buttons : ['OK']
+                })
+                alert.present()
+                this.navCtrl.setRoot(MenuPage, {
+                  accountId : this.accountId
+                })
+              },err =>{
+                console.log("Error ", err)
+                return err
+              })
+            }
+            else{
+            const alert = this.alertController.create({
+              title:"<b style ='color:green'>Correct!</b>",
+              message: "You will now proceed to the next stage!",
+              buttons: ['OK']
+            })
+            alert.present()
+            var inputvalue = (<HTMLInputElement> document.getElementById('userInput'))
+            inputvalue.value =''
+            this.startgame()
+          }
+          }
+        },err =>{
+          console.log("Error ", err)
+          return err
         })
-        alert.present()
-        this.navCtrl.setRoot(MenuPage)
-      }
-      else{
-      const alert = this.alertController.create({
-        title:"<b style ='color:green'>Correct!</b>",
-        message: "You will now proceed to the next stage!",
-        buttons: ['OK']
+      },err =>{
+        console.log("Error", err)
+        return err
       })
-      alert.present()
-      var inputvalue = (<HTMLInputElement> document.getElementById('userInput'))
-      inputvalue.value =''
-      this.startgame()
-    }
     }
     else{
       const alert = this.alertController.create({

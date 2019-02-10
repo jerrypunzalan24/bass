@@ -22,7 +22,7 @@ export class SocialBullyingScenarioPage {
   wrong = false; wrong1 = false; wrong2 = false;
   
   videoSrc = "assets/videos/Social/Social 2/Intro_S2.mp4"
-  accountId = 0; tempScore = 0; userScore = 0
+  accountId = 0; tempScore = 0; userScore = 0; level = 0
   constructor(public navCtrl: NavController, public navParams: NavParams, private database : DatabaseProvider) {
     this.database.getDatabaseState().subscribe(()=>console.log("Success!"))
     this.accountId = this.navParams.get("accountId")
@@ -44,7 +44,7 @@ export class SocialBullyingScenarioPage {
         console.log("Score and level updated successully")
         console.log(`Level : ${this.level} Current Score : ${this.userScore}, Score : ${this.tempScore}`)
         if(this.level == 2){
-          this.videoSrc = "assets/videos/Social/Social 2/Intro_C2.mp4"
+          this.videoSrc = "assets/videos/Social/Social 1/Intro_S1.mp4"
         }
       }
       else{
@@ -98,7 +98,7 @@ export class SocialBullyingScenarioPage {
     this.videoSrc ="assets/videos/Social/Social 1/Option_S1_2.mp4"
     this.ended1 = false
     this.wrong1 = true
-    this.database.executeQuery(`UPDATE progress SET level = 2, temp_score = temp_score + 1 WHERE account_id = ${this.accountId} AND scenario = 'scenario1'`).then((data)=>{
+    this.database.executeQuery(`UPDATE progress SET level = 2, temp_score = temp_score + 1 WHERE account_id = ${this.accountId} AND scenario = 'scenario3'`).then((data)=>{
       console.log("Progress updated!")
     }, err =>{
       console.log("Error ", err )

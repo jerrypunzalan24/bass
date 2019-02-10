@@ -14,15 +14,18 @@ import {VerbalBullyingScenarioPage} from '../verbal-bullying-scenario/verbal-bul
   templateUrl: 'menu-verbal-bullying.html',
 })
 export class MenuVerbalBullyingPage {
-
+  accountId = 0
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.accountId = this.navParams.get("accountId")
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuVerbalBullyingPage');
   }
   gotoScenario(){
-    this.navCtrl.push(VerbalBullyingScenarioPage)
+    this.navCtrl.push(VerbalBullyingScenarioPage,{
+      accountId : this.accountId
+    })
   }
 
 }

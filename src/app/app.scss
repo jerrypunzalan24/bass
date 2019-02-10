@@ -16,7 +16,8 @@
 // automatically applied to the <body> element in the app.
 
 .bg{
- background: white;
+ background-image: url(assets/imgs/bg1.jpg);
+ background-size : cover;
 }
 .input-style{
   border: solid 1px #5A5A5A;

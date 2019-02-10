@@ -21,6 +21,7 @@ export class PhysicalBullyingScenarioPage {
   accountId = 0
   tempScore = 0
   userScore = 0
+  level = 0
   videoSrc = "assets/videos/Physical/PHYSICAL 1/Intro_P1.mp4"
   constructor(public navCtrl: NavController, public navParams: NavParams, private database : DatabaseProvider) {
     this.database.getDatabaseState().subscribe(()=>console.log("Success!"))
@@ -43,10 +44,10 @@ export class PhysicalBullyingScenarioPage {
         console.log("Score and level updated successully")
         console.log(`Level : ${this.level} Current Score : ${this.userScore}, Score : ${this.tempScore}`)
         if(this.level == 2){
-          this.videoSrc = "assets/videos/Physical/Physical 2/Intro_C2.mp4"
+          this.videoSrc = "assets/videos/Physical/Physical 2/Intro_P2.mp4"
         }
         if(this.level == 3){
-          this.videoSrc = "assets/videos/Physical/Physical 3/Intro_C3.mp4"
+          this.videoSrc = "assets/videos/Physical/Physical 3/Intro_P3.mp4"
         }
       }
       // if there are no records of it
