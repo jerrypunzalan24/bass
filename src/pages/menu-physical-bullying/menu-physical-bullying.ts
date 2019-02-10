@@ -14,15 +14,18 @@ import {PhysicalBullyingScenarioPage} from '../physical-bullying-scenario/physic
   templateUrl: 'menu-physical-bullying.html',
 })
 export class MenuPhysicalBullyingPage {
-
+  accountId = 0
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.accountId = this.navParams.get("accountId")
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPhysicalBullyingPage');
   }
   gotoScenario(){
-    this.navCtrl.push(PhysicalBullyingScenarioPage)
+    this.navCtrl.push(PhysicalBullyingScenarioPage, {
+      accountId : this.navParams.get("accountId")
+    })
   }
 
 }

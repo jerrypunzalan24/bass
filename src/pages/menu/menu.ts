@@ -9,6 +9,7 @@ import {MenuAchievementsPage} from '../menu-achievements/menu-achievements';
 import {SocialBullyingPage} from '../social-bullying/social-bullying';
 import {LoginPage} from '../login/login';
 import {DatabaseProvider} from '../../providers/database/database';
+import {Storage} from '@ionic/storage';
 
 /**
  * Generated class for the MenuPage page.
@@ -27,7 +28,7 @@ export class MenuPage {
   success =''
   imageId = 0
   accountId = 0
-  constructor(public navCtrl: NavController, public navParams: NavParams, private database : DatabaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private database : DatabaseProvider, public storage : Storage) {
     this.database.getDatabaseState().subscribe(()=>console.log("*Hacker voice*: I'm in"))
     this.database.executeQuery("SELECT * FROM accounts").then((data)=>{
       console.log(data)
@@ -37,13 +38,18 @@ export class MenuPage {
     })
     console.log(this.navParams.data)
     this.name = this.navParams.get("name") || "Anon"
+    if(this.navParams.get("accountId") !== undefined){
+      this.accountId = this.navParams.get("accountId")
+    }
     if(this.navParams.get("success") !== undefined){
       this.name = this.navParams.get("username")
       this.success = this.navParams.get("success")
       this.imageId = this.navParams.get("imageId")
       this.database.executeQuery(`SELECT * FROM accounts WHERE name ='${this.name}'`).then((data)=>{
         if(data.rows.length > 0){
-          this.accountId = data.rows.items(0).account_id
+          this.accountId = data.rows.item(0).account_id
+          console.log(`Account ID : ${this.accountId}`)
+          this.storage.set('accountId', this.accountId)
         }
       },err =>{
         console.log("Error ",err )
@@ -57,6 +63,7 @@ export class MenuPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
+  
   }
   gotoBullying(){
     this.navCtrl.push(MenuBullyingPage,{
@@ -85,7 +92,7 @@ export class MenuPage {
   }
   gotoSocialBullying(){
     this.navCtrl.push(SocialBullyingPage,{
-      this.accountId
+      accountId : this.accountId
     })
   }
   logout(){

@@ -52,7 +52,17 @@ import {MenuPage} from '../menu/menu';
        this.database.checkAccount(this.username, this.password).then(data=>{
          console.log(data)
          if(data != 0){
-           this.navCtrl.setRoot(MenuPage, {name: this.username})
+           this.database.executeQuery(`SELECT * FROM accounts WHERE username = '${this.username}'`).then((data)=>{
+            if(data.rows.length > 0){
+              this.navCtrl.setRoot(MenuPage, {
+                name : this.username,
+                accountId : data.rows.item(0).account_id
+              })
+            }
+           },err =>{
+             console.log("Error ", err)
+             return err
+           })
          }
          else{
            this.error = "Incorrect username and password"

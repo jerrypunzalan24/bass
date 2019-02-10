@@ -14,15 +14,18 @@ import {SocialBullyingScenarioPage} from '../social-bullying-scenario/social-bul
   templateUrl: 'social-bullying.html',
 })
 export class SocialBullyingPage {
-
+  accountId = 0
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.accountId = this.navParams.get("accountId")
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SocialBullyingPage');
   }
   gotoScenario(){
-    this.navCtrl.push(SocialBullyingScenarioPage)
+    this.navCtrl.push(SocialBullyingScenarioPage,{
+      accountId : this.accountId
+    })
   }
 
 }

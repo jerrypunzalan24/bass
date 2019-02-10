@@ -17,6 +17,7 @@ export class MenuBullyingPage {
   accountId = 0
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.accountId = this.navParams.get("accountId")
+    console.log(`Account ID : ${this.accountId}`)
   }
 
   ionViewDidLoad() {
