@@ -52,7 +52,7 @@ import {MenuPage} from '../menu/menu';
        this.database.checkAccount(this.username, this.password).then(data=>{
          console.log(data)
          if(data != 0){
-           this.database.executeQuery(`SELECT * FROM accounts WHERE username = '${this.username}'`).then((data)=>{
+           this.database.executeQuery(`SELECT * FROM accounts WHERE name = '${this.username}'`).then((data)=>{
             if(data.rows.length > 0){
               this.navCtrl.setRoot(MenuPage, {
                 name : this.username,

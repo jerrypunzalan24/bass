@@ -48,12 +48,35 @@ answerboxes = []
       if(data.rows.length > 0){
         this.level = data.rows.item(0).level
         this.score = data.rows.item(0).score
-        if(data.rows.item(0).answerbank.length.trim() > 0){
+        if(data.rows.item(0).answerbank.trim().length > 0){
         this.answers = data.rows.item(0).answerbank.split(" ")
         }
         console.log("Level, score, and answerbank loaded successfully")
         console.log(`Level : ${this.level} Score : ${this.score}\nAnswerbank : ${this.answers}`)
+
       }
+      if(this.level == 0){
+        this.randomizeAnswers()
+        let answerbankStr = this.answers.join(" ")
+        this.database.executeQuery(`INSERT INTO fourpics(account_id, level, score, answerbank) VALUES(${this.accountId}, ${this.level},${this.score}, '${answerbankStr}')`).then((data)=>{
+          console.log("Data saved")
+        }, err =>{
+          console.log("Error ", err )
+          return err
+        })
+        }
+        console.log(this.answers)
+        this.source1 = this.answers[this.level]
+        this.source2 = this.answers[this.level]
+        this.source3 = this.answers[this.level]
+        this.source4 = this.answers[this.level]
+        this.answerboxes = this.answers[this.level].split("")
+        var length = this.answerboxes.length;
+        for(var x = 0; x < 12 - length; x++){
+          this.answerboxes.push(this.alphabets[Math.floor(Math.random() * this.alphabets.length) ])
+        }
+        this.randomizeAnswerBoxes()
+        console.log(this.answerboxes)
     }, err =>{
       console.log("Error ", err)
       return err
@@ -62,21 +85,9 @@ answerboxes = []
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuInteractivesPage');
-   this.startgame()
-
-
   }
+  // refresh
   startgame(){
-    if(this.level == 0){
-    this.randomizeAnswers()
-    let answerbankStr = this.answers.join(" ")
-    this.database.executeQuery(`INSERT INTO fourpics(account_id, level, score, answerbank) VALUES(${this.accountId}, ${this.level},${this.score}, '${answerbankStr}')`).then((data)=>{
-      console.log("Data saved")
-    }, err =>{
-      console.log("Error ", err )
-      return err
-    })
-    }
     console.log(this.answers)
     this.source1 = this.answers[this.level]
     this.source2 = this.answers[this.level]
@@ -117,7 +128,8 @@ answerboxes = []
         console.log("Progress saved!")
         this.database.executeQuery(`SELECT * FROM fourpics WHERE account_id = ${this.accountId}`).then((data)=>{
           if(data.rows.length > 0){
-            if(data.rows.items(0).level == 10){
+            this.level = data.rows.item(0).level
+            if(data.rows.item(0).level == 10){
               this.database.executeQuery(`UPDATE fourpics SET level = 0, answerbank = '' WHERE account_id = ${this.accountId}`).then((data)=>{
                 const alert = this.alertController.create({
                   title:"<b style ='color:green'>Congratulations</b>",

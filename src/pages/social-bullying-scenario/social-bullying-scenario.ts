@@ -43,6 +43,7 @@ export class SocialBullyingScenarioPage {
         this.userScore = data.rows.item(0).score
         console.log("Score and level updated successully")
         console.log(`Level : ${this.level} Current Score : ${this.userScore}, Score : ${this.tempScore}`)
+
         if(this.level == 2){
           this.videoSrc = "assets/videos/Social/Social 1/Intro_S1.mp4"
         }
@@ -98,7 +99,7 @@ export class SocialBullyingScenarioPage {
     this.videoSrc ="assets/videos/Social/Social 1/Option_S1_2.mp4"
     this.ended1 = false
     this.wrong1 = true
-    this.database.executeQuery(`UPDATE progress SET level = 2, temp_score = temp_score + 1 WHERE account_id = ${this.accountId} AND scenario = 'scenario3'`).then((data)=>{
+    this.database.executeQuery(`UPDATE progress SET level = 2 WHERE account_id = ${this.accountId} AND scenario = 'scenario3'`).then((data)=>{
       console.log("Progress updated!")
     }, err =>{
       console.log("Error ", err )

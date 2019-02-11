@@ -28,6 +28,16 @@ export class MenuAchievementsPage {
   accountId = 0
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertController : AlertController, private database : DatabaseProvider) {
     this.accountId = this.navParams.get("accountId")
+    console.log(`Account ID : ${this.accountId}`)
+    console.log("Checking all your achievements")
+    this.database.executeQuery(`SELECT * FROM progress WHERE account_id = ${this.accountId}`).then((data)=>{
+      if(data.rows.length > 0){
+        console.log(data)
+      }
+    },err =>{
+      console.log("Error", err)
+      return err
+    })
     this.database.executeQuery(`SELECT * FROM progress WHERE scenario = 'scenario1' AND account_id = ${this.accountId}`).then((data)=>{
       if(data.rows.length > 0){
         if(data.rows.item(0).score > 0){
@@ -58,7 +68,7 @@ export class MenuAchievementsPage {
                       if(data.rows.item(0).score == 3){
                         this.scenario4Complete = 1
                       }
-                      this.scenario3Score = data.rows.item(0).score
+                      this.scenario4Score = data.rows.item(0).score
                     }
                   }
                 },err => {

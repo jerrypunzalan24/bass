@@ -41,6 +41,15 @@ export class MenuPage {
     if(this.navParams.get("accountId") !== undefined){
       this.accountId = this.navParams.get("accountId")
     }
+    this.database.executeQuery(`SELECT * FROM accounts WHERE account_id = ${this.accountId}`).then((data)=>{
+      if(data.rows.length > 0){
+        this.name = data.rows.item(0).name
+        this.imageId = data.rows.item(0).gender
+      }
+    }, err => {
+      console.log("Error", err)
+      return err
+    })
     if(this.navParams.get("success") !== undefined){
       this.name = this.navParams.get("username")
       this.success = this.navParams.get("success")

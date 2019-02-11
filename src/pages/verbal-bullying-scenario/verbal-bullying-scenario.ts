@@ -50,7 +50,7 @@ export class VerbalBullyingScenarioPage {
       }
       else{
         this.database.executeQuery(`INSERT INTO progress(account_id, scenario,score,temp_score,level) VALUES(${this.accountId}, 'scenario4', 0, 0, 1)`).then((data)=>{
-          console.log("Added scenario 1 in this account")
+          console.log("Added scenario 4 in this account")
         },err =>{
           console.log("Error ", err)
           return err;
