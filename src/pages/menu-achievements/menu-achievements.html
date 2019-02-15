@@ -15,19 +15,71 @@
 
 <ion-content padding>
 <h5>Scenario 1 (Cyber bullying)</h5>
-<hr/>
+<div *ngIf = "scenario1Complete == 1">
+<div class ='speech-bubble' >
+  <h2>Advice:</h2>
+  <h5>Stop, Block and Tell!</h5>
+  <p>Don't respond any cyberbullying messages, block the person sending it to you and tell a trusted adult</p>
+  <h5>Think before you click</h5>
+  <p>Check what you are sending before you send it... think about it from the recipient's point of view</p>
+  <h5>Keep personal information private</h5>
+  <p>The more information someone has about you, the more easily they can bully you.</p>
+  <h5>Take five!</h5>
+  <p>Walk away from the computer for 5 minutes when something upsets you, so you don't do something you will regret later</p>
+  </div>
+  <img src ='assets/imgs/avatar/0.png' width = "150" height = "150" style ='margin-top:10px'/>
+  </div>
+<h5>Available achievements in this scenario</h5>
 <img src ='assets/imgs/achievements/scenario_correct1/{{scenario1Score}}.png' (click) = "showAchievement('scene1score')" width = "100" height = "100" align ='left'>
 <img src ='assets/imgs/achievements/scenario1-{{scenario1Complete}}.png' (click) = "showAchievement('scene1complete')" width = "100" height = "100" >
-<h5>Scenario 2 (Physical Bullying)</h5>
 <hr/>
+<h5>Scenario 2 (Physical Bullying)</h5>
+<div *ngIf = "scenario2Complete == 1">
+  <div class ='speech-bubble' >
+      <h2>Advice:</h2>
+      <h5>Don't fight back</h5>
+      <p>Don't hit the bullies - you might end up being accused of bullying yourself</p>
+      <h5>Tell someone</h5>
+      <p>When you’re ready to tell someone, it might help to write down what you want to say first or put it in a letter. Try and choose a person you feel comfortable with and who you think you can trust. If the abuse is happening at home, you might want to talk to somebody outside of the family such as a teacher or doctor. Find out more about asking an adult for help.</p>
+      <h2>Sources:</h2>
+      <p>https://www.childline.org.uk/info-advice/bullying-abuse-safety/abuse-safety/physical-abuse/</p>
+      
+  </div>
+  <img src ='assets/imgs/avatar/0.png' width = '150' height = '150' />
+  </div>
+<h5>Available achievements in this scenario</h5>
 <img src = 'assets/imgs/achievements/scenario_correct2/{{scenario2Score}}.png' (click) = "showAchievement('scene2score')" width = "100" height = "100"/>
 <img src ='assets/imgs/achievements/scenario2-{{scenario2Complete}}.png' (click) = "showAchievement('scene2complete')" width = "100" height = "100" >
-<h5>Scenario 3 (Social Bullying)</h5>
 <hr/>
+<h5>Scenario 3 (Social Bullying)</h5>
+<div *ngIf = "scenario3Complete == 1">
+<div class ='speech-bubble' >
+<h2>Advice</h2>
+<p>Don't let the small minded actions of other dull your shine. Be kind, be confident and love who you are. The bullies will soon get bored when they don't get a reaction.</p>
+</div>
+<img src= 'assets/imgs/avatar/0.png' width ='150' height ='150'/>
+</div>
+<h5>Available achievements in this scenario</h5>
 <img src ='assets/imgs/achievements/scenario_correct3/{{scenario3Score}}.png' (click) = "showAchievement('scene3score')" width = "100" height = "100"/>
 <img src ='assets/imgs/achievements/scenario3-{{scenario3Complete}}.png' (click) = "showAchievement('scene3complete')" width = "100" height = "100" >
-<h5>Scenario 4 (Verbal Bullying)</h5>
 <hr/>
+<h5>Scenario 4 (Verbal Bullying)</h5>
+<div *ngIf = "scenario4Complete == 1">
+  <div class ='speech-bubble' >
+  <h2>Advice:</h2>
+  <h5>Act unimpressed</h5>
+  <p>Pretend not to notice if you're excluded or if the bullying is verbal, say something like, 'yeah, whatever' or  'Oh, OK'.</p>
+  <h5>Pretend to agree</h5>
+  <p>'yep, that's what I'm like alright' 'Yeah, I've got red hair. Tried dyeing it but decided it was better red than green'...</p>
+  <h5>Join Clubs</h5>
+  <p>Get involved in clubs or activities at school where you'll be safe.</p>
+  <h2>Sources</h2>
+  <p>https://www.ncab.org.au/bullying-advice/bullying-for-kids/how-to-deal-with-bullies/</p>
+</div>
+  <img src ='assets/imgs/avatar/0.png' width = "150" height = "150" style ='margin-top:10px'/>
+  </div>
+<h5>Available achievements in this scenario</h5>
 <img src = 'assets/imgs/achievements/scenario_correct4/{{scenario4Score}}.png' (click) = "showAchievement('scene4score')" width = "100" height = "100"/>
 <img src ='assets/imgs/achievements/scenario4-{{scenario4Complete}}.png' (click) = "showAchievement('scene4complete')" width = "100" height = "100" >
+
 </ion-content>

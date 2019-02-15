@@ -86,7 +86,7 @@ export class CyberBullyingScenarioPage {
       this.database.executeQuery(`UPDATE progress SET level = 0, temp_score = temp_score + 1 WHERE account_id = ${this.accountId} AND scenario ='scenario1'`).then((data)=>{
         this.database.executeQuery(`SELECT * FROM progress WHERE account_id = ${this.accountId} AND scenario = 'scenario1'`).then((data)=>{
           if(data.rows.length > 0){
-            this.tempScore = data.rows.item(0).temp_score 
+            this.tempScore = data.rows.item(0).temp_score
             if(this.tempScore > this.userScore){
               this.database.executeQuery(`UPDATE progress SET level = 0, score = ${this.tempScore}, temp_score = 0 WHERE account_id = ${this.accountId} AND scenario ='scenario1'`).then((data)=>{
                 console.log("Progress updated!")  
@@ -108,7 +108,6 @@ export class CyberBullyingScenarioPage {
     this.videoSrc = "assets/videos/Cyber/Cyber 1/Option_C1_1.mp4"
     this.ended = false
     this.correct = true
-    this.userScore++
       this.database.executeQuery(`UPDATE progress SET level = 2, temp_score = temp_score + 1 WHERE account_id = ${this.accountId} AND scenario = 'scenario1'`).then((data)=>{
         console.log("Progress updated!")
       }, err =>{
@@ -137,7 +136,6 @@ export class CyberBullyingScenarioPage {
     this.videoSrc = "assets/videos/Cyber/Cyber 2/Option_C2_2.mp4"
     this.ended1 = false
     this.correct1 = true
-    this.userScore++;
     this.database.executeQuery(`UPDATE progress SET level = 3, temp_score = temp_score + 1 WHERE account_id = ${this.accountId} AND scenario ='scenario1'`).then((data)=>{
       console.log("Progress updated!")
     }, err =>{

@@ -84,10 +84,10 @@ export class SocialBullyingScenarioPage {
       this.wrong1 = false
     }
   }
-  SceneOneCorrect(){
-    this.videoSrc = "assets/videos/Social/Social 1/Option_S1_1.mp4"
-    this.ended1 = false
-    this.correct1 = true
+  SceneTwoCorrect(){
+    this.videoSrc = "assets/videos/Social/Social 2/Option_S2_1.mp4"
+    this.ended = false
+    this.correct = true
     this.database.executeQuery(`UPDATE progress SET level = 2, temp_score = temp_score + 1 WHERE account_id = ${this.accountId} AND scenario = 'scenario3'`).then((data)=>{
       console.log("Progress updated!")
     }, err =>{
@@ -95,10 +95,10 @@ export class SocialBullyingScenarioPage {
       return err
     })
   }
-  SceneOneWrong(){
-    this.videoSrc ="assets/videos/Social/Social 1/Option_S1_2.mp4"
-    this.ended1 = false
-    this.wrong1 = true
+  SceneTwoWrong(){
+    this.videoSrc ="assets/videos/Social/Social 2/Option_S2_2.mp4"
+    this.ended = false
+    this.wrong = true
     this.database.executeQuery(`UPDATE progress SET level = 2 WHERE account_id = ${this.accountId} AND scenario = 'scenario3'`).then((data)=>{
       console.log("Progress updated!")
     }, err =>{
@@ -111,10 +111,10 @@ export class SocialBullyingScenarioPage {
     this.wrong = false
     this.videoSrc = "assets/videos/Social/Social 1/Intro_S1.mp4"
   }
-  SceneTwoCorrect(){
-    this.videoSrc = "assets/videos/Social/Social 2/Option_S2_1.mp4"
-    this.ended = false
-    this.correct = true
+  SceneOneCorrect(){
+    this.videoSrc = "assets/videos/Social/Social 1/Option_S1_1.mp4"
+    this.ended1 = false
+    this.correct1 = true
     this.database.executeQuery(`UPDATE progress SET level = 0, temp_score = temp_score + 1 WHERE account_id = ${this.accountId} AND scenario ='scenario3'`).then((data)=>{
       this.database.executeQuery(`SELECT * FROM progress WHERE account_id = ${this.accountId} AND scenario = 'scenario3'`).then((data)=>{
         if(data.rows.length > 0){
@@ -134,10 +134,10 @@ export class SocialBullyingScenarioPage {
       return err
     })
   }
-  SceneTwoWrong(){
-    this.videoSrc = "assets/videos/Social/Social 2/Option_S2_2.mp4"
-    this.ended = false
-    this.wrong = true
+  SceneOneWrong(){
+    this.videoSrc = "assets/videos/Social/Social 1/Option_S1_2.mp4"
+    this.ended1 = false
+    this.wrong1 = true
     this.database.executeQuery(`UPDATE progress SET level = 0 WHERE account_id = ${this.accountId} AND scenario ='scenario3'`).then((data)=>{
       this.database.executeQuery(`SELECT * FROM progress WHERE account_id = ${this.accountId} AND scenario = 'scenario3'`).then((data)=>{
         if(data.rows.length > 0){

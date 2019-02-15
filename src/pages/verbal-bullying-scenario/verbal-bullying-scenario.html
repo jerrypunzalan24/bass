@@ -19,9 +19,8 @@
     </video>
     <!-- scenario 1 -->
     <div *ngIf = "ended">
-    <button ion-button block (click) ="SceneOneCorrect()">Accept what he said</button>
-    <button ion-button block (click) = "SceneOneWrong()">Retaliate</button>
-    <button ion-button block (click) = "SceneOneWrong1()">Ask</button>
+    <button ion-button block (click) ="SceneOneCorrect()">Ignore, you know yourself better</button>
+    <button ion-button block (click) = "SceneOneWrong()">Talk back</button>
     <div style='margin-top:50px'>
         <div class='speech-bubble-right'>
           <p>If you were on this situation what will you do?</p>
@@ -39,7 +38,7 @@
       </style>
       <div class='speech-bubble-right green' style='background:green;margin-top:15px'>
           <h5 >Correct!</h5>
-          <p>Being a nerd is a smart person, it is not supposed be an insult. When someone calls you that take it as a compliment</p>
+          <p>The bully will only continue to make fun of you</p>
       </div>
       <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
     </div>
@@ -52,7 +51,7 @@
     </style>
       <div class='speech-bubble-right red' style='background:red;margin-top:15px'>
           <h5 style ='color:red'>Wrong!</h5>
-          <p>This is obviously wrong unless you are physically prepared to fight back</p>
+          <p>The bully will only continue to make fun of you</p>
       </div>
       <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
     </div>
@@ -64,7 +63,7 @@
       </style>
         <div class='speech-bubble-right red' style='background:red;margin-top:15px'>
             <h5 style ='color:red'>Wrong!</h5>
-            <p>This is not the right time to ask question especially for a bully because he/she will make fun of you.</p>
+            <p>The bully will only continue to make fun of you</p>
         </div>
         <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
       </div>
@@ -72,7 +71,6 @@
     <!-- Scenario 2 -->
     <div *ngIf ="ended1">
      <button ion-button block (click) = "SceneTwoWrong()">Talk back</button>
-     <button ion-button block (click) = "SceneTwoWrong1()">Ask what you did wrong</button>
      <button ion-button block (click) = "SceneTwoCorrect()">Pretend you didn't hear</button>
      <div style='margin-top:50px'>
         <div class='speech-bubble-right'>
@@ -92,31 +90,31 @@
       </style>
       <div class='speech-bubble-right green' style='background:green;margin-top:15px'>
           <h5>Correct!</h5>
-          <p>Ignore them. Your teachers only have the right to criticize your presentation, not those bullies</p>
+          <p>Be calm and recite, your teacher got your back to support you</p>
       </div>
       <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
     </div>
     <div *ngIf ="wrong1" style ='margin-top:10px'>
-      <button ion-button block (click) = "scenarioThreeStart()">Go to next scenariok</button>
+      <button ion-button block (click) = "scenarioThreeStart()">Go to next scenario</button>
       <style>.red:after {
           border-top-color: red;
         }
       </style>
         <div class='speech-bubble-right red' style='background:red;margin-top:15px'>
-            <h5 style ='color:red'>Wrong!</h5>
-            <p>Don't let your emotions win when you present. Your teachers got your back to support you.</p>
+            <h5 >Wrong!</h5>
+            <p>Be calm and recite, your teacher got your back to support you</p>
         </div>
         <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
     </div>
     <div *ngIf ="wrong11" style ='margin-top:10px'>
-      <button ion-button block (click) = "scenarioThreeStart()">Go to next scenariok</button>
+      <button ion-button block (click) = "scenarioThreeStart()">Go to next scenario</button>
       <style>.red:after {
           border-top-color: red;
         }
       </style>
         <div class='speech-bubble-right red' style='background:red;margin-top:15px'>
-            <h5 style ='color:red'>Wrong!</h5>
-            <p>If you make mistakes in a presentation just focus and let the teacher start to say the whole class to keep quiet</p>
+            <h5 >Wrong!</h5>
+            <p>Be calm and recite, your teacher got your back to support you</p>
         </div>
         <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
     </div>
@@ -124,7 +122,7 @@
     
     <!--Scenario 3 -->
     <div *ngIf ="ended2">
-        <button ion-button block (click) = "ScenarioThreeCorrect()">Stand for yourself</button>
+        <button ion-button block (click) = "ScenarioThreeCorrect()">Stand up and compose yourself</button>
         <button ion-button block (click) = "ScenarioThreeWrong()">Run from embarrassment</button>
         <div style='margin-top:50px'>
             <div class='speech-bubble-right'>
@@ -141,7 +139,7 @@
       </style>
         <div class='speech-bubble-right red' style='background:red;margin-top:15px'>
             <h5 style ='color:red'>Wrong!</h5>
-            <p>Show yourself that you are not weak. Be confident!</p>
+            <p>Everybody commits mistakes. Be confident!</p>
         </div>
         <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>
     </div>
@@ -155,7 +153,7 @@
         </style>
         <div class='speech-bubble-right green' style='background:green;margin-top:15px'>
             <h5 style ='color:green'>Congratulations</h5>
-            <p>Fight back! Because it is just an accident and every people encounter it. People will see you as a brave and strong person</p>
+            <p>Everybody commits mistakes. Be confident!</p>
             <p>Congratulations for finishing all the scenario in this topic. We hope you learn more on how to avoid this in real life cases.</p>
         </div>
         <img src='assets/imgs/avatar/1.png' width='150px' height='150px' align='right'>

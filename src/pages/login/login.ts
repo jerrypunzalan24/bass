@@ -59,13 +59,13 @@ import {MenuPage} from '../menu/menu';
                 accountId : data.rows.item(0).account_id
               })
             }
+            else{
+           this.error = "Incorrect username and password"
+         }
            },err =>{
              console.log("Error ", err)
              return err
            })
-         }
-         else{
-           this.error = "Incorrect username and password"
          }
        }, err => {
          this.error = JSON.stringify(err);
@@ -80,9 +80,6 @@ import {MenuPage} from '../menu/menu';
        if(this.password == ''){
          this.error += "<br/>Password"
        }
-     }
-     else{
-       this.error = "Username or password is incorrect"
      }
    }
    gotoRegister(){

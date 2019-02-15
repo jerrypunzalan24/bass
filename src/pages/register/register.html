@@ -13,10 +13,10 @@
   <div style ='padding-left:35px;padding-right:35px'>
     <p style ='color:red'[innerHTML] = "this.error"></p>
     <ion-item>
-      <ion-input placeholder ='Tell me your name' #username (blur) = "updateUsername(username.value)" ></ion-input>
+      <ion-input placeholder ='Tell me your username' maxlength = '12' #username (blur) = "updateUsername(username.value)" ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type ='password' placeholder ="What is your password?" #password (blur) = "updatePassword(password.value)"></ion-input>
+      <ion-input type ='password' placeholder ="What is your password?" maxlength = '12' #password (blur) = "updatePassword(password.value)"></ion-input>
     </ion-item>
     <h3 style ='text-align:center'>Choose your gender</h3>
     <ion-list radio-group [(ngModel)] = "gender">

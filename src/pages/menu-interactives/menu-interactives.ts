@@ -121,6 +121,20 @@ answerboxes = []
       this.answerboxes[y] = temp
    }
   }
+  add(event : any){
+    var inputValue = (<HTMLInputElement> document.getElementById("userInput"))
+    if(inputValue.value.length <= 12){
+      this.yourAnswer += event.target.value
+      inputValue.value += event.target.value
+    } 
+  }
+  delete(event: any){
+    if(this.yourAnswer.length > 0){
+    var inputValue = (<HTMLInputElement> document.getElementById("userInput"))
+    this.yourAnswer = this.yourAnswer.substring(0, this.yourAnswer.length - 1)
+    inputValue.value = this.yourAnswer
+    }
+  }
   submitAnswer(){
     console.log(this.level)
     if(this.yourAnswer.toLowerCase() == this.answers[this.level]){
@@ -154,6 +168,7 @@ answerboxes = []
             alert.present()
             var inputvalue = (<HTMLInputElement> document.getElementById('userInput'))
             inputvalue.value =''
+            this.yourAnswer = ''
             this.startgame()
           }
           }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {AlertController} from 'ionic-angular';
 import {MenuBullyingPage} from '../menu-bullying/menu-bullying';
 import {MenuPhysicalBullyingPage} from '../menu-physical-bullying/menu-physical-bullying';
 import {MenuVerbalBullyingPage} from '../menu-verbal-bullying/menu-verbal-bullying';
@@ -28,7 +28,7 @@ export class MenuPage {
   success =''
   imageId = 0
   accountId = 0
-  constructor(public navCtrl: NavController, public navParams: NavParams, private database : DatabaseProvider, public storage : Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private database : DatabaseProvider, public storage : Storage, public alertController : AlertController) {
     this.database.getDatabaseState().subscribe(()=>console.log("*Hacker voice*: I'm in"))
     this.database.executeQuery("SELECT * FROM accounts").then((data)=>{
       console.log(data)
@@ -41,6 +41,223 @@ export class MenuPage {
     if(this.navParams.get("accountId") !== undefined){
       this.accountId = this.navParams.get("accountId")
     }
+    //Check all achievements
+    this.database.executeQuery(`SELECT * FROM progress WHERE account_id = ${this.accountId}`).then((data)=>{
+      if(data.rows.length > 0){
+        console.log(data)
+      }
+    },err =>{
+      console.log("Error", err)
+      return err
+    })
+    this.database.executeQuery(`SELECT * FROM progress WHERE scenario = 'scenario1' AND account_id = ${this.accountId}`).then((data)=>{
+      if(data.rows.length > 0){
+        if(data.rows.item(0).score > 0){
+          if(data.rows.item(0).score == 3){
+            this.database.executeQuery(`SELECT * FROM achievements WHERE achievement_name ='scenario1master' AND account_id =${this.accountId}`).then((data)=>{
+              if(data.rows.length == 0){
+                // Add mastered
+                this.database.executeQuery(`INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(${this.accountId},'scenario1master',1)`).then((data)=>{
+                  console.log("Scenario 1 mastered added success")
+                  const alert = this.alertController.create({
+                    title:"You received an achievement",
+                    message: "Cyber bullying mastered",
+                    buttons : ['OK']
+                  })
+                  alert.present()
+                }, err =>{
+                  console.log("Error ", err)
+                  return err
+                })
+              }
+            }, err =>{
+              console.log("Error ", err)
+              return err
+            })
+          }
+          // Add mastery
+          var userscore = data.rows.item(0).score
+          this.database.executeQuery(`SELECT * FROM achievements WHERE achievement_name = 'scenario1score${userscore}' AND account_id = ${this.accountId}`).then((data)=>{
+            if(data.rows.length == 0){
+              this.database.executeQuery(`INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(${this.accountId}, 'scenario1score${userscore}', 1)`).then((data)=>{
+                console.log(`Scenario 1 mastery level ${userscore} added success`)
+                const alert = this.alertController.create({
+                  title : "You received an achievement",
+                  message : `Cyber bullying mastery ${userscore}`,
+                  buttons : ["OK"]
+                })
+                alert.present()
+              }, err =>{
+                console.log("Error ", err)
+                return err
+              })
+            }
+          }, err =>{
+            console.log("Error ", err)
+            return err
+          })
+        }
+      }
+      this.database.executeQuery(`SELECT * FROM progress WHERE scenario ='scenario2' AND account_id = ${this.accountId}`).then((data)=>{
+          if(data.rows.length > 0){
+            if(data.rows.item(0).score > 0){
+              if(data.rows.item(0).score == 3){
+                this.database.executeQuery(`SELECT * FROM achievements WHERE achievement_name ='scenario2master' AND account_id =${this.accountId}`).then((data)=>{
+                  if(data.rows.length == 0){
+                    // Add mastered
+                    this.database.executeQuery(`INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(${this.accountId},'scenario2master',1)`).then((data)=>{
+                      console.log("Scenario 1 mastered added success")
+                      const alert = this.alertController.create({
+                        title:"You received an achievement",
+                        message: "Physical bullying mastered",
+                        buttons : ['OK']
+                      })
+                      alert.present()
+                    }, err =>{
+                      console.log("Error ", err)
+                      return err
+                    })
+                  }
+                }, err =>{
+                  console.log("Error ", err)
+                  return err
+                })
+              }
+                        // Add mastery
+          var userscore = data.rows.item(0).score
+          this.database.executeQuery(`SELECT * FROM achievements WHERE achievement_name = 'scenario2score${userscore}' AND account_id = ${this.accountId}`).then((data)=>{
+            if(data.rows.length == 0){
+              this.database.executeQuery(`INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(${this.accountId}, 'scenario2score${userscore}', 1)`).then((data)=>{
+                console.log(`Scenario 1 mastery level ${userscore} added success`)
+                const alert = this.alertController.create({
+                  title : "You received an achievement",
+                  message : `Physical bullying mastery ${userscore}`,
+                  buttons : ["OK"]
+                })
+                alert.present()
+              }, err =>{
+                console.log("Error ", err)
+                return err
+              })
+            }
+          }, err =>{
+            console.log("Error ", err)
+            return err
+          })
+            }
+          }
+          this.database.executeQuery(`SELECT * FROM progress WHERE scenario = 'scenario3' AND account_id = ${this.accountId}`).then((data) =>{
+              if(data.rows.length > 0){
+                if(data.rows.item(0).score > 0){
+                  if(data.rows.item(0).score == 2){
+                    this.database.executeQuery(`SELECT * FROM achievements WHERE achievement_name ='scenario3master' AND account_id =${this.accountId}`).then((data)=>{
+                      if(data.rows.length == 0){
+                        // Add mastered
+                        this.database.executeQuery(`INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(${this.accountId},'scenario3master',1)`).then((data)=>{
+                          console.log("Scenario 1 mastered added success")
+                          const alert = this.alertController.create({
+                            title:"You received an achievement",
+                            message: "Social bullying mastered",
+                            buttons : ['OK']
+                          })
+                          alert.present()
+                        }, err =>{
+                          console.log("Error ", err)
+                          return err
+                        })
+                      }
+                    }, err =>{
+                      console.log("Error ", err)
+                      return err
+                    })
+                  }
+                            // Add mastery
+          var userscore = data.rows.item(0).score
+          this.database.executeQuery(`SELECT * FROM achievements WHERE achievement_name = 'scenario3score${userscore}' AND account_id = ${this.accountId}`).then((data)=>{
+            if(data.rows.length == 0){
+              this.database.executeQuery(`INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(${this.accountId}, 'scenario3score${userscore}', 1)`).then((data)=>{
+                console.log(`Scenario 3 mastery level ${userscore} added success`)
+                const alert = this.alertController.create({
+                  title : "You received an achievement",
+                  message : `Social bullying mastery ${userscore}`,
+                  buttons : ["OK"]
+                })
+                alert.present()
+              }, err =>{
+                console.log("Error ", err)
+                return err
+              })
+            }
+          }, err =>{
+            console.log("Error ", err)
+            return err
+          })
+                }
+              }
+              this.database.executeQuery(`SELECT * FROM progress WHERE scenario ='scenario4' AND account_id = ${this.accountId}`).then((data)=>{
+                  if(data.rows.length > 0){
+                    if(data.rows.item(0).score > 0){
+                      if(data.rows.item(0).score == 3){
+                        this.database.executeQuery(`SELECT * FROM achievements WHERE achievement_name ='scenario4master' AND account_id =${this.accountId}`).then((data)=>{
+                          if(data.rows.length == 0){
+                            // Add mastered
+                            this.database.executeQuery(`INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(${this.accountId},'scenario4master',1)`).then((data)=>{
+                              console.log("Scenario 4 mastered added success")
+                              const alert = this.alertController.create({
+                                title:"You received an achievement",
+                                message: "Verbal bullying mastered",
+                                buttons : ['OK']
+                              })
+                              alert.present()
+                            }, err =>{
+                              console.log("Error ", err)
+                              return err
+                            })
+                          }
+                        }, err =>{
+                          console.log("Error ", err)
+                          return err
+                        })
+                      }
+                                // Add mastery
+          var userscore = data.rows.item(0).score
+          this.database.executeQuery(`SELECT * FROM achievements WHERE achievement_name = 'scenario4score${userscore}' AND account_id = ${this.accountId}`).then((data)=>{
+            if(data.rows.length == 0){
+              this.database.executeQuery(`INSERT INTO achievements(account_id, achievement_name, achievement_complete) VALUES(${this.accountId}, 'scenario4score${userscore}', 1)`).then((data)=>{
+                console.log(`Scenario 4 mastery level ${userscore} added success`)
+                const alert = this.alertController.create({
+                  title : "You received an achievement",
+                  message : `Verbal bullying mastery ${userscore}`,
+                  buttons : ["OK"]
+                })
+                alert.present()
+              }, err =>{
+                console.log("Error ", err)
+                return err
+              })
+            }
+          }, err =>{
+            console.log("Error ", err)
+            return err
+          })
+                    }
+                  }
+                },err => {
+                  console.log("Error ",err)
+                  return err
+                })
+            }, err => {
+              console.log("Error ", err)
+              return err
+            })
+        }, err =>{
+          console.log("Error ", err)
+        })
+    },err =>{
+      console.log("Error ", err)
+      return err
+    })
+    //End check all achievements
     this.database.executeQuery(`SELECT * FROM accounts WHERE account_id = ${this.accountId}`).then((data)=>{
       if(data.rows.length > 0){
         this.name = data.rows.item(0).name
