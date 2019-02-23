@@ -82,6 +82,7 @@ export class PhysicalBullyingScenarioPage {
     if(this.videoSrc == "assets/videos/Physical/Physical 3/Intro_P3.mp4"){
       this.ended2 = true
     }
+    this.videoSrc = ''
   }
   SceneOneCorrect(){
     this.videoSrc = "assets/videos/Physical/PHYSICAL 1/Option_P1_2.mp4"

@@ -65,12 +65,22 @@
         <div *ngIf = "this.answers[this.level] == 'tease'">
     <p style ='text-align:center'>make fun of or attempt to provoke in a playful way</p>
     </div>
+    <div *ngIf = "this.answers[this.level] == 'bystander'">
+      <p style ='text-align:center' >a person who is present at an event or incident but does not take part.</p>
+    </div>
     <hr/>
     <div>
     <input id ='userInput' style ='padding:10px;text-align:center;height:50px;font-size:18px' type ='text' readonly value ='' placeholder ='Input your answer'/>
     <input maxlength = '1' size = '1' style ='width:50px;text-align:center;height:50px;font-size:18px' type ='text' readonly value ='<' (click) ='delete($event)'/>
     </div>
-    <button ion-button style ='margin-top:15px' block (click) ="submitAnswer()">Submit your answer</button>
+    <ion-row>
+      <ion-col>
+      <button ion-button style ='margin-top:15px' block (click) ="submitAnswer()">Submit your answer</button>
+      </ion-col>
+      <ion-col>
+          <button ion-button style ='margin-top:15px' block (click) ="showHelp()">Help</button>
+      </ion-col>
+    </ion-row>
   </div>
 
 

@@ -16,7 +16,7 @@
 // automatically applied to the <body> element in the app.
 
 .bg{
- background-image: url(assets/imgs/bg1.jpg);
+ background-image: url(./assets/imgs/background.jpg);
  background-size : cover;
 }
 .input-style{
@@ -51,7 +51,10 @@ position: relative;
 }
 p{
   text-align:justify;
-  font-size:16px
+  font-size:16px;
+}
+b{
+	font-size:16px;
 }
 .speech-bubble-right p, .speech-bubble-right h1, .speech-bubble-right h4, .speech-bubble-right h5, .speech-bubble-right h2{
   color:white;

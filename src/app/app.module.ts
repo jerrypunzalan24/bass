@@ -19,6 +19,7 @@ import {VerbalBullyingScenarioPage} from '../pages/verbal-bullying-scenario/verb
 import {SocialBullyingScenarioPage} from '../pages/social-bullying-scenario/social-bullying-scenario';
 import {SocialBullyingPage} from '../pages/social-bullying/social-bullying';
 import {PollPage} from '../pages/poll/poll';
+import {FourpicsdefPage} from '../pages/fourpicsdef//fourpicsdef';
 
 import { DatabaseProvider } from '../providers/database/database';
 
@@ -45,6 +46,7 @@ import { SQLite } from '@ionic-native/sqlite'
     VerbalBullyingScenarioPage,
     CyberBullyingScenarioPage,
     PhysicalBullyingScenarioPage,
+    FourpicsdefPage,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ import { SQLite } from '@ionic-native/sqlite'
     SocialBullyingScenarioPage,
     VerbalBullyingScenarioPage,
     CyberBullyingScenarioPage,
-    PhysicalBullyingScenarioPage
+    PhysicalBullyingScenarioPage,
+    FourpicsdefPage,
   ],
   providers: [
     StatusBar,

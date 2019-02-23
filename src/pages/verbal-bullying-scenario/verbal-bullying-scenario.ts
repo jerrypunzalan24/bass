@@ -80,6 +80,7 @@ export class VerbalBullyingScenarioPage {
     if(this.videoSrc == "assets/videos/Verbal/Verbal 3/Intro_V3.mp4"){
       this.ended2 = true
     }
+    this.videoSrc =''
   }
   SceneOneCorrect(){
     this.videoSrc = "assets/videos/Verbal/Verbal 1/Option_V1_2.mp4"

@@ -103,6 +103,7 @@ export class CyberBullyingScenarioPage {
       })
       this.ended2 = true
     }
+    this.videoSrc = ''
   }
   SceneOneCorrect(){
     this.videoSrc = "assets/videos/Cyber/Cyber 1/Option_C1_1.mp4"

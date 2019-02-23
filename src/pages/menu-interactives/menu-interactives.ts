@@ -5,6 +5,7 @@ import {Inject} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {MenuPage} from '../menu/menu';
 import {DatabaseProvider} from '../../providers/database/database';
+import {FourpicsdefPage} from '../fourpicsdef/fourpicsdef';
 /**
  * Generated class for the MenuInteractivesPage page.
  *
@@ -37,6 +38,7 @@ answers = [
   "study",
   "taunt",
   "tease",
+  "bystander",
 ]
 yourAnswer = ''
 answerboxes = []
@@ -121,6 +123,9 @@ answerboxes = []
       this.answerboxes[y] = temp
    }
   }
+  showHelp(){
+    this.navCtrl.push(FourpicsdefPage)
+  }
   add(event : any){
     var inputValue = (<HTMLInputElement> document.getElementById("userInput"))
     if(inputValue.value.length <= 12){
@@ -143,7 +148,7 @@ answerboxes = []
         this.database.executeQuery(`SELECT * FROM fourpics WHERE account_id = ${this.accountId}`).then((data)=>{
           if(data.rows.length > 0){
             this.level = data.rows.item(0).level
-            if(data.rows.item(0).level == 10){
+            if(data.rows.item(0).level == 11){
               this.database.executeQuery(`UPDATE fourpics SET level = 0, answerbank = '' WHERE account_id = ${this.accountId}`).then((data)=>{
                 const alert = this.alertController.create({
                   title:"<b style ='color:green'>Congratulations</b>",

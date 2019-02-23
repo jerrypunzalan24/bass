@@ -73,6 +73,7 @@ export class SocialBullyingScenarioPage {
     if(this.videoSrc == "assets/videos/Social/Social 1/Intro_S1.mp4"){
       this.ended1 = true
     }
+    this.videoSrc = ''
   }
   goback(){
     if(this.videoSrc == "assets/videos/Social/Social 2/Option_S2_2.mp4"){
